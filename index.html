@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jaehyung Son - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* General Reset and Base Styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f6; /* Light gray background for contrast */
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        /* Header Styling */
+        header {
+            background-color: #2c3e50; /* Dark blue/gray */
+            color: #ecf0f1; /* Light text */
+            padding: 40px 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin-bottom: 5px;
+            font-size: 2.5em;
+            font-weight: 700;
+        }
+
+        header p {
+            font-size: 1.1em;
+            font-weight: 300;
+        }
+
+        header nav a {
+            color: #ecf0f1;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
+
+        header nav a:hover {
+            color: #3498db; /* Blue on hover */
+        }
+
+        /* Main Content and Card Styling */
+        main {
+            padding-top: 20px;
+        }
+
+        .card {
+            background-color: #ffffff;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            border-left: 5px solid #3498db; /* Highlight border */
+        }
+
+        .card h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+
+        /* Interests List Styling */
+        .interest-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .interest-list li {
+            margin-bottom: 15px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+        }
+
+        .interest-list li .icon {
+            font-size: 1.5em;
+            margin-right: 15px;
+            color: #e74c3c; /* Red icon color */
+        }
+
+        /* Button Styling */
+        #toggleOriginBtn {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            margin-top: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #toggleOriginBtn:hover {
+            background-color: #2980b9;
+        }
+
+        /* Hidden Content Style (for JS) */
+        .hidden {
+            display: none;
+            margin-top: 10px;
+            padding-left: 20px;
+            border-left: 3px solid #ccc;
+            font-style: italic;
+            color: #555;
+        }
+
+        /* Footer Styling */
+        footer {
+            background-color: #34495e;
+            color: #ecf0f1;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>Jaehyung Son</h1>
+            <p>Aspiring Aerospace Engineer</p>
+            <nav>
+                <a href="#about">About</a>
+                <a href="#education">Education</a>
+                <a href="#interests">Interests</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        
+        <section id="about" class="card">
+            <h2>👋 About Me</h2>
+            <p>Hello! I'm Jaehyung Son, a student passionate about the future of space exploration. I hail from **Anyang, Korea**, and my ultimate goal is to become an **Aerospace Engineer**.</p>
+            <button id="toggleOriginBtn">Show Origin Detail</button>
+            <p id="originDetail" class="hidden">Anyang is a vibrant city in Gyeonggi Province, South Korea, known for its rich cultural history and modern development.</p>
+        </section>
+
+        <section id="education" class="card">
+            <h2>🎓 Education</h2>
+            <div class="education-item">
+                <h3>Keio University</h3>
+                <p>Currently studying at one of Japan's most prestigious universities, focusing on my interests in science and engineering.</p>
+            </div>
+        </section>
+
+        <section id="interests" class="card">
+            <h2>🚀 Interests & Hobbies</h2>
+            <ul class="interest-list">
+                <li><i class="icon">🎸</i> **Guitar:** Enjoying music and developing finger dexterity.</li>
+                <li><i class="icon">🧗</i> **Climbing:** A challenging sport that requires focus and problem-solving skills.</li>
+                <li><i class="icon">🎮</i> **Gaming:** Relaxing and engaging in strategic thinking through various digital platforms.</li>
+            </ul>
+        </section>
+
+        <section id="dream" class="card">
+            <h2>🌠 My Dream</h2>
+            <p>My dream is to contribute to humanity's endeavors in space. I aim to work on cutting-edge technologies that will make interstellar travel and space colonization a reality as an **Aerospace Engineer**.</p>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Jaehyung Son Portfolio</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 버튼과 상세 정보를 가져옵니다.
+            const toggleBtn = document.getElementById('toggleOriginBtn');
+            const detailElement = document.getElementById('originDetail');
+
+            // 버튼 클릭 이벤트를 설정합니다.
+            toggleBtn.addEventListener('click', () => {
+                // 'hidden' 클래스를 토글하여 보였다가 숨깁니다.
+                detailElement.classList.toggle('hidden');
+                
+                // 버튼 텍스트를 변경하여 현재 상태를 표시합니다.
+                if (detailElement.classList.contains('hidden')) {
+                    toggleBtn.textContent = 'Show Origin Detail';
+                } else {
+                    toggleBtn.textContent = 'Hide Origin Detail';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
